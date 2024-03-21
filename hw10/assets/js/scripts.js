@@ -144,11 +144,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
   usernameInput.addEventListener("input", function (event) {
     const value = event.target.value;
     // Regex pattern for validating a username
-    const validUsernamePattern = /^[a-zA-Z0-9._]{3,15}$/;
+    const validUsernamePattern = /^[a-zA-Z0-9._]{6,}$/;
 
     if (!validUsernamePattern.test(value)) {
       usernameMessage.textContent =
-        "Invalid input. Username must be 3-15 characters long and can include letters, numbers, underscores, and dots.";
+        "Invalid input. Username must be at least 6 characters minimum";
       usernameInput.style.borderColor = "red";
       usernameMessage.className = "message-error"; // Set the class
     } else {
@@ -166,18 +166,38 @@ window.addEventListener("DOMContentLoaded", (event) => {
   passwordInput.addEventListener("input", function (event) {
     const value = event.target.value;
     // Regex pattern for a strong password
-    const validPasswordPattern =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const validPasswordPattern = /^[a-zA-Z0-9._]{6,}$/;
 
     if (!validPasswordPattern.test(value)) {
       passwordMessage.textContent =
-        "Invalid input. Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.";
+        "Invalid input. Password must be at least 6 characters long";
       passwordInput.style.borderColor = "red";
       passwordMessage.className = "message-error"; // Set the class
     } else {
       passwordMessage.textContent = "The input is valid.";
       passwordInput.style.borderColor = "";
       passwordMessage.className = "message-success"; // Set the class
+    }
+  });
+
+  // Password
+  const commentInput = document.getElementById("commentInput");
+  const commentMessage = document.getElementById("commentMessage");
+
+  // Validate
+  commentInput.addEventListener("input", function (event) {
+    const value = event.target.value;
+    // Regex pattern for a strong comment
+    const validCommentPattern = /.{1,}$/;
+
+    if (!validCommentPattern.test(value)) {
+      commentMessage.textContent = "Comment cannot be NULL";
+      commentInput.style.borderColor = "red";
+      commentMessage.className = "message-error"; // Set the class
+    } else {
+      commentMessage.textContent = "The input is valid.";
+      commentInput.style.borderColor = "";
+      commentMessage.className = "message-success"; // Set the class
     }
   });
 
