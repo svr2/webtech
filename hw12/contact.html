@@ -97,18 +97,14 @@
             <!-- To make this form functional, sign up at-->
             <!-- https://startbootstrap.com/solution/contact-forms-->
             <!-- to get an API token!-->
-            <form
-              id="mainForm"
-              data-sb-form-api-token="API_TOKEN"
-              method="get"
-              action="results.php"
-            >
+            <form id="mainForm" method="get" action="results.php">
               <!-- Name input-->
               <div class="form-floating mb-3">
                 <input
                   class="form-control"
                   id="firstNameInput"
                   type="text"
+                  name="firstname"
                   placeholder="Enter your name..."
                 />
                 <label for="name">First Name</label>
@@ -123,6 +119,7 @@
                   class="form-control"
                   id="lastNameInput"
                   type="text"
+                  name="lastname"
                   placeholder="Enter your name..."
                 />
                 <label for="name">Last Name</label>
@@ -137,6 +134,7 @@
                   class="form-control"
                   id="emailInput"
                   type="email"
+                  name="email"
                   placeholder="Enter your name..."
                 />
                 <label for="name">Email</label>
@@ -149,6 +147,7 @@
                   class="form-control"
                   id="phoneInput"
                   type="text"
+                  name="phone"
                   placeholder="Enter your name..."
                 />
                 <label for="name">Phone</label>
@@ -163,6 +162,7 @@
                   class="form-control"
                   id="usernameInput"
                   type="text"
+                  name="username"
                   placeholder="Enter your name..."
                 />
                 <label for="name">Username</label>
@@ -177,6 +177,7 @@
                   class="form-control"
                   id="passwordInput"
                   type="password"
+                  name="password"
                   placeholder="Enter your name..."
                 />
                 <label for="name">Password</label>
@@ -191,6 +192,7 @@
                   class="form-control"
                   id="commentInput"
                   type="textarea"
+                  name="comments"
                   placeholder="Enter your name..."
                 />
                 <label for="name">Comment</label>
@@ -220,8 +222,9 @@
 
               <button
                 class="btn btn-primary btn-xl enabled"
-                id="submitButton"
+                id="submitBtn"
                 type="submit"
+                name="submit"
               >
                 Send
               </button>
