@@ -88,9 +88,11 @@
             
                 if ($_POST['email'] == "admin@utsa.edu")
                 {
-            
-                echo '<h2>Welcome to the admin dashboard</h2>';
-                }
+                    echo '<h2>Welcome to the admin dashboard</h2>';
+                } 
+            } else
+            {
+                echo '<h2>Please go back to contact.html to fuill out the form!</h2>'
             }
         
         
