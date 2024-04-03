@@ -71,26 +71,7 @@
         </div>
       </div>
     </nav>
-    <?php 
-            if (isset($_POST['submit']))
-            {
-                echo "<h2>hello from results</h2>";
-                echo '<p>First Name: '.$_POST['firstname'].'</p>';
-                echo '<p>Last Name: '.$_POST['lastname'].'</p>';
-                echo '<p>Email: '.$_POST['email'].'</p>';
-                echo '<p>Phone: '.$_POST['phone'].'</p>';
-                echo '<p>Username: '.$_POST['username'].'</p>';
-                echo '<p>Password: '.$_POST['password'].'</p>';
-                echo '<p>Comments: '.$_POST['comments'].'</p>';
-            
-                if ($_POST['email'] == "admin@utsa.edu")
-                {
-                    echo '<h2>Welcome to the admin dashboard</h2>';
-                } 
-            }
-        
-        
-        ?>
+
     <!-- Contact Section-->
     <section class="page-section" id="contact">
       <div class="container">
@@ -116,140 +97,169 @@
             <!-- To make this form functional, sign up at-->
             <!-- https://startbootstrap.com/solution/contact-forms-->
             <!-- to get an API token!-->
-            <form id="mainForm" method="post" action="_">
-              <!-- Name input-->
-              <div class="form-floating mb-3">
-                <input
-                  class="form-control"
-                  id="firstNameInput"
-                  type="text"
-                  name="firstname"
-                  placeholder="Enter your name..."
-                />
-                <label for="name">First Name</label>
-                <div id="firstNameMessage" class="errorMessage">
-                  A name is required.
+
+            <?php 
+            
+              if (!isset($_POST['submit'])) 
+              {
+
+            ?>    
+                <form id="mainForm" method="post" action="">
+                <!-- Name input-->
+                <div class="form-floating mb-3">
+                  <input
+                    class="form-control"
+                    id="firstNameInput"
+                    type="text"
+                    name="firstname"
+                    placeholder="Enter your name..."
+                  />
+                  <label for="name">First Name</label>
+                  <div id="firstNameMessage" class="errorMessage">
+                    A name is required.
+                  </div>
                 </div>
-              </div>
-
-              <!-- LastName input-->
-              <div class="form-floating mb-3">
-                <input
-                  class="form-control"
-                  id="lastNameInput"
-                  type="text"
-                  name="lastname"
-                  placeholder="Enter your name..."
-                />
-                <label for="name">Last Name</label>
-                <div id="lastNameMessage" class="errorMessage">
-                  A last name is required.
+  
+                <!-- LastName input-->
+                <div class="form-floating mb-3">
+                  <input
+                    class="form-control"
+                    id="lastNameInput"
+                    type="text"
+                    name="lastname"
+                    placeholder="Enter your name..."
+                  />
+                  <label for="name">Last Name</label>
+                  <div id="lastNameMessage" class="errorMessage">
+                    A last name is required.
+                  </div>
                 </div>
-              </div>
-
-              <!-- Email input-->
-              <div class="form-floating mb-3">
-                <input
-                  class="form-control"
-                  id="emailInput"
-                  type="email"
-                  name="email"
-                  placeholder="Enter your name..."
-                />
-                <label for="name">Email</label>
-                <div id="emailMessage" class="errorMessage"></div>
-              </div>
-
-              <!-- phone input-->
-              <div class="form-floating mb-3">
-                <input
-                  class="form-control"
-                  id="phoneInput"
-                  type="text"
-                  name="phone"
-                  placeholder="Enter your name..."
-                />
-                <label for="name">Phone</label>
-                <div id="phoneMessage" class="errorMessage">
-                  Valid phone number is required
+  
+                <!-- Email input-->
+                <div class="form-floating mb-3">
+                  <input
+                    class="form-control"
+                    id="emailInput"
+                    type="email"
+                    name="email"
+                    placeholder="Enter your name..."
+                  />
+                  <label for="name">Email</label>
+                  <div id="emailMessage" class="errorMessage"></div>
                 </div>
-              </div>
-
-              <!-- username input-->
-              <div class="form-floating mb-3">
-                <input
-                  class="form-control"
-                  id="usernameInput"
-                  type="text"
-                  name="username"
-                  placeholder="Enter your name..."
-                />
-                <label for="name">Username</label>
-                <div id="usernameMessage" class="errorMessage">
-                  Valid username is required
+  
+                <!-- phone input-->
+                <div class="form-floating mb-3">
+                  <input
+                    class="form-control"
+                    id="phoneInput"
+                    type="text"
+                    name="phone"
+                    placeholder="Enter your name..."
+                  />
+                  <label for="name">Phone</label>
+                  <div id="phoneMessage" class="errorMessage">
+                    Valid phone number is required
+                  </div>
                 </div>
-              </div>
-
-              <!-- password input-->
-              <div class="form-floating mb-3">
-                <input
-                  class="form-control"
-                  id="passwordInput"
-                  type="password"
-                  name="password"
-                  placeholder="Enter your name..."
-                />
-                <label for="name">Password</label>
-                <div id="passwordMessage" class="errorMessage">
-                  Valid password is required
+  
+                <!-- username input-->
+                <div class="form-floating mb-3">
+                  <input
+                    class="form-control"
+                    id="usernameInput"
+                    type="text"
+                    name="username"
+                    placeholder="Enter your name..."
+                  />
+                  <label for="name">Username</label>
+                  <div id="usernameMessage" class="errorMessage">
+                    Valid username is required
+                  </div>
                 </div>
-              </div>
-
-              <!-- comment input-->
-              <div class="form-floating mb-3">
-                <input
-                  class="form-control"
-                  id="commentInput"
-                  type="textarea"
-                  name="comments"
-                  placeholder="Enter your name..."
-                />
-                <label for="name">Comment</label>
-                <div id="commentMessage" class="errorMessage">
-                  A comment is required
+  
+                <!-- password input-->
+                <div class="form-floating mb-3">
+                  <input
+                    class="form-control"
+                    id="passwordInput"
+                    type="password"
+                    name="password"
+                    placeholder="Enter your name..."
+                  />
+                  <label for="name">Password</label>
+                  <div id="passwordMessage" class="errorMessage">
+                    Valid password is required
+                  </div>
                 </div>
-              </div>
-
-              <!-- Submit success message-->
-              <!---->
-              <!-- This is what your users will see when the form-->
-              <!-- has successfully submitted-->
-              <div class="d-none" id="submitSuccessMessage">
-                <div class="text-center mb-3">
-                  <div class="fw-bolder">Form submission successful!</div>
-                  To activate this form, sign up at
-                  <br />
-                  <a href="https://startbootstrap.com/solution/contact-forms"
-                    >https://startbootstrap.com/solution/contact-forms</a
-                  >
+  
+                <!-- comment input-->
+                <div class="form-floating mb-3">
+                  <input
+                    class="form-control"
+                    id="commentInput"
+                    type="textarea"
+                    name="comments"
+                    placeholder="Enter your name..."
+                  />
+                  <label for="name">Comment</label>
+                  <div id="commentMessage" class="errorMessage">
+                    A comment is required
+                  </div>
                 </div>
-              </div>
-              <!-- Submit error message-->
-              <!---->
-              <!-- This is what your users will see when there is-->
-              <!-- an error submitting the form-->
+  
+                <!-- Submit success message-->
+                <!---->
+                <!-- This is what your users will see when the form-->
+                <!-- has successfully submitted-->
+                <div class="d-none" id="submitSuccessMessage">
+                  <div class="text-center mb-3">
+                    <div class="fw-bolder">Form submission successful!</div>
+                    To activate this form, sign up at
+                    <br />
+                    <a href="https://startbootstrap.com/solution/contact-forms"
+                      >https://startbootstrap.com/solution/contact-forms</a
+                    >
+                  </div>
+                </div>
+                <!-- Submit error message-->
+                <!---->
+                <!-- This is what your users will see when there is-->
+                <!-- an error submitting the form-->
+  
+                <button
+                  class="btn btn-primary btn-xl enabled"
+                  id="submitBtn"
+                  type="submit"
+                  name="submit"
+                >
+                  Send
+                </button>
+  
+                <div class="d-none" id="messageDisplay" type="submit"></div>
+                </form>
+      
 
-              <button
-                class="btn btn-primary btn-xl enabled"
-                id="submitBtn"
-                type="submit"
-                name="submit"
-              >
-                Send
-              </button>
 
-              <div class="d-none" id="messageDisplay" type="submit"></div>
-            </form>
+            <?php 
+              }
+            else
+            {
+                echo "<h2>hello from results</h2>";
+                echo '<p>First Name: '.$_POST['firstname'].'</p>';
+                echo '<p>Last Name: '.$_POST['lastname'].'</p>';
+                echo '<p>Email: '.$_POST['email'].'</p>';
+                echo '<p>Phone: '.$_POST['phone'].'</p>';
+                echo '<p>Username: '.$_POST['username'].'</p>';
+                echo '<p>Password: '.$_POST['password'].'</p>';
+                echo '<p>Comments: '.$_POST['comments'].'</p>';
+            
+                if ($_POST['email'] == "admin@utsa.edu")
+                {
+                    echo '<h2>Welcome to the admin dashboard</h2>';
+                } 
+            }
+            ?>
           </div>
         </div>
       </div>
